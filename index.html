@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>קורס TSH - שיטת הטיפול של תינא שירין</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff10" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,176C384,192,480,192,576,176C672,160,768,128,864,128C960,128,1056,160,1152,165.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transform: translateX(-50px);
+            opacity: 0;
+            animation: slideInRight 1s ease forwards;
+        }
+
+        @keyframes slideInRight {
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.4rem;
+            color: #555;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .floating-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transform: rotate(-5deg);
+            animation: floatCard 4s ease-in-out infinite;
+            text-align: center;
+        }
+
+        @keyframes floatCard {
+            0%, 100% { transform: rotate(-5deg) translateY(0px); }
+            50% { transform: rotate(-5deg) translateY(-15px); }
+        }
+
+        .floating-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .floating-card p {
+            color: #666;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .section-white {
+            background: white;
+        }
+
+        .section-gray {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Story Section */
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .story-text {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .story-text h3 {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .story-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .story-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+            background: linear-gradient(135deg, #667eea20, #764ba220);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-image::before {
+            content: '✨';
+            font-size: 4rem;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.2) rotate(180deg); }
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            font-size: 4rem;
+            color: #667eea;
+            opacity: 0.3;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .stars {
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea10, #764ba210);
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: linear-gradient(135deg, #667eea20, #764ba220);
+        }
+
+        .faq-question h3 {
+            font-size: 1.1rem;
+            color: #2c3e50;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            color: #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-answer.active {
+            padding: 1.5rem;
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff10" fill-opacity="1" d="M0,32L48,80C96,128,192,224,288,224C384,224,480,128,576,90.7C672,53,768,75,864,96C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>') no-repeat top;
+            background-size: cover;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .story-content {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .loading.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">הבחירה הנכונה</a>
+            <ul class="nav-links">
+                <li><a href="#about">אודות</a></li>
+                <li><a href="#method">השיטה</a></li>
+                <li><a href="#testimonials">המלצות</a></li>
+                <li><a href="#faq">שאלות נפוצות</a></li>
+                <li><a href="#contact">צור קשר</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>שיטת TSH</h1>
+                        <p class="subtitle">גלי את העוצמות שבך והגשימי את הייעוד האמיתי שלך בחיים</p>
+                        <p>בעזרת השיטה הייחודית שלי עזרתי למאות תלמידים לפתור חסמים רגשיים ומנטליים על מנת להגיע לאיזון אנרגטי בין הגוף לנפש.</p>
+                        <a href="#register" class="cta-button">הרשמה לקורס</a>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="floating-card">
+                            <h3>מעל 300+ תלמידים</h3>
+                            <p>חוו שינוי מהפכני בחייהם</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section-white loading">
+            <div class="container">
+                <div class="section-header">
+                    <h2>נעים להכיר!</h2>
+                    <p>אני תינא שירין, בעלת מספר עסקים ויזמית בתחום הרפואה הוליסטית</p>
+                </div>
+                <div class="story-content">
+                    <div class="story-text">
+                        <h3>המסע שלי</h3>
+                        <p>מאז שאני זוכרת את עצמי תמיד עשיתי מה שציפו ממני לעשות. גם כילדה וגם כאישה נשואה, לעולם לא הרשתי לעצמי לעשות את מה שאני באמת רוצה.</p>
+                        <p>החלטתי שאני רוצה להיות אני, אני רוצה לבחור לאהוב את עצמי, להחליט ושיהיה לי ביטוי עצמי. מתוך רצון זה התחיל שינוי ותהליך שבמהלכו הבנתי שמותר לי – לשמוח, לחייך, ללמוד, לרצות להתפתח, פשוט להיות!</p>
+                        <p>שיניתי את חיי ב-180 מעלות ופיתחתי את עצמי בעזרת רכישת כלים חדשים ולמידה.</p>
+                    </div>
+                    <div class="story-image"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Method Section -->
+        <section id="method" class="section-gray loading">
+            <div class="container">
+                <div class="section-header">
+                    <h2>מה תקבלו מלימודי השיטה?</h2>
+                    <p>כלים מעשיים לשינוי חיים אמיתי</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">💪</div>
+                        <h3>ביטחון עצמי</h3>
+                        <p>פיתוח ביטחון פנימי וכוח אישי שיעזור לכם להתמודד עם כל אתגר</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>כיוון דרך בחיים</h3>
+                        <p>מציאת המטרה והייעוד האמיתי שלכם בחיים</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">✨</div>
+                        <h3>בחירות מדויקות</h3>
+                        <p>יכולת לקבל החלטות נכונות המבוססות על האני האמיתי שלכם</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌟</div>
+                        <h3>אמון עצמי</h3>
+                        <p>בניית אמון פנימי בכישורים וביכולות שלכם</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>חוסן אישי</h3>
+                        <p>פיתוח עמידות רגשית ומנטלית לקראת אתגרי החיים</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎓</div>
+                        <h3>מקצוע חדש</h3>
+                        <p>תעודה רשמית והסמכה לטיפול באחרים</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="section-white loading">
+            <div class="container">
+                <div class="section-header">
+                    <h2>מה אומרים עלינו</h2>
+                    <p>עדויות אמיתיות של תלמידים שחוו שינוי</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">מטפלת מדהימה גורמת לשקט נפשי ומחשבתי, קשובה ועוזרת מכל הלב. הטיפול חולל בי פלאים וסידר לי מחשבות.</p>
+                        <div class="testimonial-author">- עדי מגדל</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">עברתי אצל תינא טיפול משולב אקסס בארס ורייקי, הרגשתי בעננים אחרי הטיפול! מומלץ לכל אחד שחווה קשיים בחיים.</p>
+                        <div class="testimonial-author">- אורי ברנהרד</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">תינא, כנראה שיד אלוהים נגעה בך. רוגע, שלווה, אהבה ונתינה אלו הם התכונות שמלוות אותך. כמטופל חל שינוי מהותי בחיי.</p>
+                        <div class="testimonial-author">- יעקב רווה</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section-gray loading">
+            <div class="container">
+                <div class="section-header">
+                    <h2>שאלות נפוצות</h2>
+                    <p>כל מה שרציתם לדעת על הקורס</p>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>איך משלמים עבור הקורס?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>ניתן לשלם באשראי עד 12 תשלומים, ביט, העברה בנקאית או מזומן.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>איפה מתקיים הקורס?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>הקורס מתקיים במרכז "הבחירה להיות" בפתח תקווה, בכיתה אינטימית עם שאר התלמידים.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>כמה מפגשים כולל הקורס?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>הקורס כולל 6 מפגשים, כל מפגש 3 שעות לימודים. בסוף הלימודים מקבלים תעודה רשמית.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>האם צריך רקע קודם ברפואה אלטרנטיבית?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>לא! אין שום צורך ברקע ברפואה אלטרנטיבית לפני הקורס. הקורס מתאים לכל אדם בעל רצון ובחירה מלאה.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>האם יש ליווי אחרי הקורס?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>כן! ישנה קבוצת ווטסאפ של מסיימי השיטה לתמיכה ושאלות, וכן קורס דיגיטלי במתנה לחזרה על החומר.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>מה המדיניות לביטול?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>במידה והלכתם לשיעור הראשון ולא תרצו להמשיך לשיעור השני, אנו מתחייבים להחזר מלא.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Details Section -->
+        <section class="section-white loading">
+            <div class="container">
+                <div class="section-header">
+                    <h2>תוכנית הלימודים</h2>
+                    <p>מה נלמד בכל מפגש</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">1️⃣</div>
+                        <h3>מפגש ראשון - כוח המילים</h3>
+                        <p>נלמד איך סמנטיקה חיובית ושלילית משפיעה על חיינו, בעזרת מילים מעצימות על מנת ליצור מגנט אל הדברים שאנחנו רוצים בחיים</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">2️⃣</div>
+                        <h3>מפגש שני - התמודדות עם פחדים</h3>
+                        <p>נלמד איך להתמודד עם הפחדים שלנו, עם חרדות, נבין לעומק את התת מודע של עצמנו ונבחן מאיפה מגיעים הפחדים</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">3️⃣</div>
+                        <h3>מפגש שלישי - שחרור כאבים</h3>
+                        <p>נלמד בעזרת שיטות הטיפול במגע בנקודות אסטרטגיות איך להשתחרר מכאבים שמעכבים אותנו - השיטה משלבת שיחת אימון ומגע</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">4️⃣</div>
+                        <h3>מפגש רביעי - שינוי הרגלים</h3>
+                        <p>נלמד איך בעזרת שיטות אנרגטיות ושאלות ליקום נוכל לשנות הרגלים מהתת מודע שמעכבים אותנו</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">5️⃣</div>
+                        <h3>מפגש חמישי - פתיחת השפע</h3>
+                        <p>נלמד בעזרת תדרים ותהליכים לפתיחת השפע האישי, בעזרת העצמה וחיבור אנרגטי לשיטה. נעבור חניכות אישיות על ידי תדרים ייחודים</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎁</div>
+                        <h3>מפגש בונוס</h3>
+                        <p>מפגש הפתעה מיוחד שיעמיק את הלמידה ויחזק את הכלים שרכשתם</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="register" class="cta-section loading">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>מוכנים להתחיל את המסע?</h2>
+                    <p>הצטרפו לקהילה של מעל 300 תלמידים שכבר חוו שינוי אמיתי בחייהם</p>
+                    <div class="cta-buttons">
+                        <a href="tel:052-123-4567" class="btn-primary">התקשרו עכשיו</a>
+                        <a href="https://wa.me/972521234567" class="btn-secondary">וואטסאפ</a>
+                    </div>
+                    <p style="margin-top: 2rem; font-size: 1.1rem; opacity: 0.9;">
+                        💳 תשלום בכרטיס אשראי עד 12 תשלומים<br>
+                        📞 ליווי אישי לאורך כל הדרך<br>
+                        🎓 תעודה מוכרת בסיום הקורס
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 הבחירה להיות - תינא שירין הרוניאן. כל הזכויות שמורות.</p>
+            <p>פתח תקווה | טלפון: 052-123-4567 | אימייל: info@choiceforyou.co.il</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Function
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            const answer = faqItem.querySelector('.faq-answer');
+            const toggle = element.querySelector('.faq-toggle');
+            
+            // Close all other FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== faqItem) {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-answer').classList.remove('active');
+                    item.querySelector('.faq-toggle').textContent = '+';
+                }
+            });
+            
+            // Toggle current FAQ item
+            faqItem.classList.toggle('active');
+            answer.classList.toggle('active');
+            toggle.textContent = faqItem.classList.contains('active') ? '×' : '+';
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.15)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Loading animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('loaded');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.loading').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add some dynamic interactions
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Floating elements animation
+        function animateFloatingElements() {
+            const floatingCard = document.querySelector('.floating-card');
+            if (floatingCard) {
+                const rect = floatingCard.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                
+                if (isVisible) {
+                    const scrollY = window.pageYOffset;
+                    const rate = scrollY * -0.5;
+                    floatingCard.style.transform = `rotate(-5deg) translateY(${rate}px)`;
+                }
+            }
+        }
+
+        window.addEventListener('scroll', animateFloatingElements);
+
+        // Add typing effect to hero title
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            
+            type();
+        }
+
+        // Initialize typing effect when page loads
+        window.addEventListener('load', () => {
+            const heroTitle = document.querySelector('.hero-text h1');
+            if (heroTitle) {
+                const originalText = heroTitle.textContent;
+                setTimeout(() => {
+                    typeWriter(heroTitle, originalText, 150);
+                }, 500);
+            }
+        });
+
+        // Add particle effect to hero section
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.cssText = `
+                position: absolute;
+                width: 4px;
+                height: 4px;
+                background: rgba(102, 126, 234, 0.6);
+                border-radius: 50%;
+                pointer-events: none;
+                animation: float 3s linear infinite;
+            `;
+            
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 3 + 's';
+            
+            document.querySelector('.hero').appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 3000);
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 300);
+
+        // Add WhatsApp floating button
+        const whatsappButton = document.createElement('div');
+        whatsappButton.innerHTML = `
+            <a href="https://wa.me/972521234567" target="_blank" style="
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                background: #25D366;
+                color: white;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                text-decoration: none;
+                box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+                z-index: 1000;
+                transition: all 0.3s ease;
+                animation: bounce 2s infinite;
+            " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                💬
+            </a>
+        `;
+        document.body.appendChild(whatsappButton);
+
+        // Add bounce animation for WhatsApp button
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes bounce {
+                0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+                40% { transform: translateY(-10px); }
+                60% { transform: translateY(-5px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
